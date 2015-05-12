@@ -1,0 +1,162 @@
+% --- force emacs to latex mode -*-latex-*-
+%
+% Tell TeX where to look for graphics files to be included
+%
+\graphicspath{{pdf/}} % Note, the additional {} are mandatory!
+\renewcommand\topfraction{.95}
+\renewcommand\bottomfraction{.95}
+\renewcommand{\floatpagefraction}{0.9}
+\renewcommand{\textfraction}{0.05}
+\topmargin 0mm
+\oddsidemargin 0mm
+\textwidth 170mm
+\textheight 230mm
+%
+% Put additional commands, abbreviations etc. here
+%
+\newcommand{\jt}{\ensuremath{H_{\mathrm{T}}}\xspace}
+\newcommand{\GeVC}{\ensuremath{\GeV\!/c}}
+\newcommand{\gevc}{\ensuremath{\GeV\!/c}}
+\newcommand {\abseta} {|\eta|}
+\newcommand{\mzero}{\ensuremath{{m_0}}}
+\newcommand{\azero}{\ensuremath{A_{0}}}
+\newcommand{\mhalf}{\ensuremath{m_{1/2}}}
+\newcommand{\tb}{\ensuremath{\tan\beta}}
+
+% Sleptons
+\providecommand{\slepton}{\ensuremath{\widetilde{\ell}}\xspace}
+\providecommand{\selectron}{\ensuremath{\widetilde{\cmsSymbolFace{e}}}\xspace}
+\providecommand{\smuon}{\ensuremath{\widetilde{\mu}}\xspace}
+\providecommand{\stau}{\ensuremath{\widetilde{\tau}}\xspace}
+
+% Squarks
+\providecommand{\squark}{\ensuremath{\widetilde{\cmsSymbolFace{q}}}\xspace}
+\renewcommand{\sbone}{\ensuremath{\widetilde{\cmsSymbolFace{b}}_{1}}\xspace}
+\renewcommand{\stop}{\ensuremath{\widetilde{\cmsSymbolFace{t}}}\xspace}
+
+% Neutralinos
+\providecommand{\nall}{\ensuremath{\widetilde{\chi}^{0}}\xspace}
+\providecommand{\nalli}{\ensuremath{\widetilde{\chi}^{0}_{i}}\xspace}
+\providecommand{\none}{\ensuremath{\widetilde{\chi}^{0}_{1}}\xspace}
+\providecommand{\ntwo}{\ensuremath{\widetilde{\chi}^{0}_{2}}\xspace}
+\providecommand{\nthree}{\ensuremath{\widetilde{\chi}^{0}_{3}}\xspace}
+
+% Charginos
+\providecommand{\call}{\ensuremath{\widetilde{\chi}^{\pm}}\xspace}
+\providecommand{\cone}{\ensuremath{\widetilde{\chi}^{\pm}_{1}}\xspace}
+\providecommand{\conem}{\ensuremath{\widetilde{\chi}^{-}_{1}}\xspace}
+\providecommand{\conep}{\ensuremath{\widetilde{\chi}^{+}_{1}}\xspace}
+\providecommand{\ctwo}{\ensuremath{\widetilde{\chi}^{\pm}_{2}}\xspace}
+
+% Gluinos
+\providecommand{\gluino}{\ensuremath{\widetilde{g}}\xspace}
+
+% Gravitino or Goldstino
+\providecommand{\goldstino}{\ensuremath{\widetilde{\cmsSymbolFace{G}}}\xspace}
+
+\newcommand{\nunit}[2]{#1\,\mbox{#2}}
+\newcommand{\met}{\ensuremath{E_{\mathrm{T}}^{\text{miss}}}\xspace}
+\newcommand{\curlumi}{714}
+\providecommand{\FIXME}[1]{({\bf FIXME: #1})}
+\providecommand{\HERWIGPP} {{\textsc{herwig++}}\xspace}
+\providecommand{\JIMMY} {{\textsc{jimmy}}\xspace}
+\providecommand{\NLOJETPP} {{\textsc{nlojet++}}\xspace}
+\providecommand{\Et}{E_{\mathrm{T}}}
+%\providecommand{\met}{\mbox{${\hbox{$\vec{E}$\kern-0.5em\lower-.1ex\hbox{/}}}_T~$}}
+%\providecommand{\MET}{\mbox{${\hbox{$E$\kern-0.5em\lower-.1ex\hbox{/}}}_T~$}}
+\providecommand{\pthat}{\ensuremath{\hat{\text{p}}_\mathrm{T}}\xspace}
+\providecommand{\kthat}{\ensuremath{\hat{\text{k}}_\mathrm{T}}\xspace}
+\providecommand{\xt}{\ensuremath{\text{x}_\mathrm{T}}\xspace}
+\providecommand{\ptjet}{\ensuremath{p_{\mathrm{T,jet}}}\xspace}
+\providecommand{\FASTNLO} {{fast\textsc{nlo}}\xspace}
+
+\providecommand{\rbthm}{\rule[-2ex]{0ex}{5ex}}
+\providecommand{\rbthr}{\rule[-1.7ex]{0ex}{5ex}}
+\providecommand{\rbtrm}{\rule[-2ex]{0ex}{5ex}}
+\providecommand{\rbtrr}{\rule[-0.8ex]{0ex}{3.2ex}}
+\providecommand{\relmet}{\ensuremath{\text{MET}/\sum{E_{\mathrm{T}}}}}
+\providecommand{\LvStartup}{\ensuremath{\mathcal{L}=\text{10}^\text{31}\,\text{cm}^\text{$-$2}\,\text{s}^\text{$-$1}}\xspace}
+
+% \newcommand{\ptof}[1]{p_{\mathrm{T}}^{\mathrm{#1}}}
+% \newcommand{\ptcalo}{\ptof{calo}}
+% \newcommand{\ptgen}{\ptof{gen}}
+% \newcommand{\ptz}{\ptof{Z}}
+% \newcommand{\ptcontrol}{\ptof{control}}
+% \newcommand{\ltwodijet}{L2$^{\mathrm{MC dijet}}$\ }
+% \newcommand{\lthreedijet}{L3$^{\mathrm{MC dijet}}$\ }
+% \newcommand{\Kt}{K$_{\mathrm{T}}$}
+% \newcommand{\Eti}{E_{\mathrm{T}}^i}
+
+% Already defined in ptdr-definitions
+%\newcommand{\fixme}[1]{
+%  \mbox{} \\
+%  XXXXXXXXXX START XXXXXXXXXXXXX \\
+%  {#1} \mbox{} \\
+%  XXXXXXXXXXX END XXXXXXXXXXXXX \\
+%}
+%\newcommand{\pt}{p_{\mathrm{T}}}
+%\newcommand{\kt}{k$_{\mathrm{T}}$}
+\newcommand{\procLumi}{19.5~\textrm{fb}^{-1}}
+%\newcommand{\ttbar}{\ensuremath{{t\overline{t}}}\xspace}
+\newcommand{\iso}{\mathrm{iso}}
+\newcommand{\noniso}{\mathrm{noniso}}
+\newcommand{\eiso}{\epsilon_\iso}
+\newcommand{\eisomu}{\eiso(\mu)}
+\newcommand{\eisotr}{\eiso(\mathrm{track})}
+\newcommand{\esb}{\epsilon_\mathrm{sb}}
+%\newcommand{\Pp}{\ensuremath{\mathrm{p}}}
+%\newcommand{\Pgm}{\ensuremath{{\mu}}}
+%\newcommand{\Pem}{\ensuremath{\mathrm{e}^-}}
+%\newcommand{\Pep}{\ensuremath{\mathrm{e}^+}}
+%\newcommand{\Pe}{\ensuremath{\mathrm{e}}}
+%\newcommand{\PJgy}{\ensuremath{\mathrm{J}\hspace{-.08em}/\hspace{-.14em}\psi\mathrm{(1S)}}}
+%\newcommand{\PgU}{\ensuremath{\Upsilon}}
+%\newcommand{\PgUa}{\ensuremath{\Upsilon\mathrm{(1S)}}}
+%\newcommand{\PgUb}{\ensuremath{\Upsilon\mathrm{(2S)}}}
+%\newcommand{\PgUc}{\ensuremath{\Upsilon\mathrm{(3S)}}}
+%\newcommand{\PgUd}{\ensuremath{\Upsilon\mathrm{(3S)}}}
+%\newcommand{\PgUe}{\ensuremath{\Upsilon\mathrm{(10860)}}}
+%\newcommand{\PgUf}{\ensuremath{\Upsilon\mathrm{(11020)}}}
+%\newcommand{\GeV}{\mbox{GeV}\xspace}
+%\newcommand{\pt}{\ensuremath{p_{\mathrm{T}}}\xspace}
+%\newcommand{\et}{\ensuremath{E_{\mathrm{T}}}\xspace}
+%\newcommand{\GeVc}{\mbox{GeV/$c$}\xspace}
+%\newcommand{\GeVcc}{\mbox{GeV/$c^2$}\xspace}
+
+%Definitions from TWIKI note
+\def\beq{\begin{equation}}
+\def\eq{\end{equation}}
+\def\eeq{\end{equation}}
+
+\def\fivelep{\ell \ell \ell \ell \ell}
+\def\fourlep{\ell \ell \ell \ell} 
+\def\threelep{\ell \ell \ell} 
+\def\twolep{\ell \ell} 
+
+
+%\def\beq{\begin{equation}}
+\def\eq{\end{equation}}
+%\def\eeq{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+
+%\def\l{l}
+\def\l{\ell}
+
+\def\chii0{\chi_i^0}
+\def\chij0{\chi_j^0}
+\def\chiipm{\chi_i^{\pm}}
+\def\chijpm{\chi_j^{\pm}}
+\def\chiimp{\chi_i^{\mp}}
+\def\chijmp{\chi_j^{\mp}}
+
+%\def\none{\chi_1^0}
+%\def\cone{\chi_1^{\pm}}
+
+
+\def\ETslash{\not \! \! E_T}
+
+% fromto command for rightangle to rightarrow
+
+\def\fromto{ \put(4,2.85){\line(0,1){12}} \to }
+\def\longfromto{ \put(4.45,2.85){\line(0,1){12}} \longrightarrow }

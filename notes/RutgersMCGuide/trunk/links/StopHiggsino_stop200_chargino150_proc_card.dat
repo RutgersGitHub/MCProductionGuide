@@ -1,0 +1,38 @@
+#************************************************************
+#*                        MadGraph 5                        *
+#*                                                          *
+#*                *                       *                 *
+#*                  *        * *        *                   *
+#*                    * * * * 5 * * * *                     *
+#*                  *        * *        *                   *
+#*                *                       *                 *
+#*                                                          *
+#*                                                          *
+#*    The MadGraph Development Team - Please visit us at    *
+#*    https://server06.fynu.ucl.ac.be/projects/madgraph     *
+#*                                                          *
+#************************************************************
+#*                                                          *
+#*               Command File for MadGraph 5                *
+#*                                                          *
+#*     run as ./bin/mg5  filename                           *
+#*                                                          *
+#************************************************************
+import model_v4 StopHiggsino_stop200_chargino150
+
+# Define multiparticle labels
+define p = u u~ c c~ d d~ s s~ b b~ g
+define j = p
+define l+ = e+ mu+ ta+
+define l- = e- mu- ta-
+define vl = ve vm vt
+define vl~ = ve~ vm~ vt~
+
+# Specify process(es) to run
+generate p p > t1 t1~ @1
+
+# Output processes to MadEvent directory
+output StopHiggsino_stop200_chargino150
+
+# To generate events, you can go to the created directory and 
+# run ./bin/generate_events

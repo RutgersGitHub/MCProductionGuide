@@ -1,0 +1,89 @@
+--- COMMENTS may be placed outside the @ENTRYTYPE{ ... } stuctures
+--- CMS guidelines
+---- Every journal article citation should include the DOI, assuming one exists.
+---- All URLs for CMS notes, ANs, etc, should refer to the CDS server, not the CMS server. Use our standard format for them, as shown below.
+----  CMS Notes not available on CDS are regarded as private and may not be cited.
+----  CMS physics papers (i.e., those intended for publication in journals) may reference only POG PASs, not PAG PASs.
+---- For papers by collaborations, list the collaboration in the COLLABOROATION field and put the first author and "and others" in the AUTHOR field.
+----  If only the collaboration is listed as the author, put "{XXX Collaboration}" under AUTHOR.
+----  Note that we automatically replace the AUTHOR field with the collaboration name for ATLAS, CMS, LHCb, and ATLAS at submission time.
+---- Other items:
+----   PAGES: Please only list the first page, not the range.
+----   ISSUE: Please do not include in most cases.
+----   URL: Do not include this field if a DOI is available.
+---- Number of authors to list:
+----   PRL requests that we include all authors up to fifteen except for large collaborations, and we take this as our internal guide as well. If there
+----   are more than fifteen, just list the first author + "and others", as above.
+----   The individual journal bib style file (theirs, ours, PLB, etc.) will truncate at the appropriate point. We have ours set to _1_ for more than four.
+---- Use only the URL field instead of embedding an href (this is a change in our practice).
+---- A reference only published on the arXiv should be listed as UNPUBLISHED (with a note "Submitted to XXX" for large collaboration papers).
+----   Experimental papers only on the arXiv and not submitted for publication may not be cited.
+---- Some journals will lowercase the title: use {} to protect words which must be capitalized, e.g., {LHC}, {TeV}, {CERN}, {CMS}.
+----  Do not escape the entire title as it will then clash with the journal style.
+---- Journal names: the journals generally include the series in the journal name, "Physical Review D", vol 5, rather than PR D5
+%
+% Notes hosted only on CDS are listed as TECHREPORTs.
+%
+@article{Baer:1999sp,
+      author         = "Baer, Howard and Paige, Frank E. and Protopopescu, Serban D. and Tata, Xerxes",
+      title          = "{$\ISAJET$ 7.48: A Monte Carlo event generator for $\Pp \Pp$, $\Pp \bar{\Pp}$, and $\EE$ reactions}",
+      year           = "1999",
+      eprint         = "hep-ph/0001086",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "BNL-HET-99-43, FSU-HEP-991218, UH-511-952-00",
+      SLACcitation   = "%%CITATION = HEP-PH/0001086;%%",
+}
+
+@article{Sjostrand:2006za,
+      author         = "Sjostrand, Torbjorn and Mrenna, Stephen and Skands, Peter Z.",
+      title          = "{$\PYTHIA$ 6.4 Physics and Manual}",
+      journal        = "JHEP",
+      volume         = "0605",
+      pages          = "026",
+      doi            = "10.1088/1126-6708/2006/05/026",
+      year           = "2006",
+      eprint         = "hep-ph/0603175",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "FERMILAB-PUB-06-052-CD-T, LU-TP-06-13",
+      SLACcitation   = "%%CITATION = HEP-PH/0603175;%%",
+}
+
+@article{Maltoni:2002qb,
+     author        = "Maltoni, F. and Stelzer, T.",
+     title         = "{MadEvent: Automatic event generation with $\MADGRAPH$}",
+     journal       = "JHEP",
+     volume        = "02",
+     year          = "2003",
+     eprint        = "hep-ph/0208156v1",
+     archivePrefix = "arXiv",
+     pages         = "027",
+     doi           = "10.1088/1126-6708/2003/02/027",
+     SLACcitation  = "%%CITATION = HEP-PH/0208156;%%"
+}
+
+@manual{Beenakker:1996ed,
+      author         = "Beenakker, W. and Hopker, R. and Spira, M.",
+      title          = "$\PROSPINO$: A program for the production of supersymmetric particles in next-to-leading order QCD",
+      year           = "1996",
+      eprint         = "hep-ph/9611232v1",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      SLACcitation   = "%%CITATION = HEP-PH/9611232;%%",
+}
+
+@article{Ohl:1995kr,
+      author         = "Ohl, Thorsten",
+      title          = "{Drawing Feynman diagrams with Latex and Metafont}",
+      journal        = "Comput. Phys. Commun.",
+      volume         = "90",
+      pages          = "340-354",
+      doi            = "10.1016/0010-4655(95)90137-S",
+      year           = "1995",
+      eprint         = "hep-ph/9505351",
+      archivePrefix  = "arXiv",
+      primaryClass   = "hep-ph",
+      reportNumber   = "IKDA-95-20",
+      SLACcitation   = "%%CITATION = HEP-PH/9505351;%%",
+}
