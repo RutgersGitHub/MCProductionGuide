@@ -295,6 +295,7 @@ Additional examples of $\PYTHIA$ configuration files.
 %%%%%%%%%%%%% MadGraph %%%%%%%%%%%%%%%%%%%%%
 \section{\texorpdfstring{$\MADGRAPH$}{MadGraph} with aMC@NLO}
 
+%%%%%%%%%%%%% Introduction %%%%%%%%%%%%%%%%%%%%%
 \subsection{Introduction}
 
 $\MADGRAPH$5 is the new version of the $\MADGRAPH$ matrix element generator, written in 
@@ -319,10 +320,19 @@ and NLO lines of development of automated tools within the MadGraph family. It t
 all the MadGraph5 1.5.x versions and all the beta versions of aMC@NLO.
 
 
+%%%%%%%%%%%%% Setting up MadGraph %%%%%%%%%%%%%%%%%%%%%
 \subsection{Setting up \texorpdfstring{$\MADGRAPH$}{MadGraph}}
 \label{sec:MadGraphSetup}
 
-Download $\MADGRAPH$5 from the $\MADGRAPH$ website (\url{http://madgraph.hep.uiuc.edu/}).
+Download $\MADGRAPH$5 from the $\MADGRAPH$ website (\url{http://madgraph.hep.uiuc.edu/}) or 
+use the commandline.
+
+\begin{verbatim}
+[shell prompt]$ wget --user <madgraphusername>
+--ask-password http://launchpad.net/madgraph5/2.0/2.2.0/+download
+/MG5_aMC_v2.2.3.tar.gz
+\end{verbatim}
+
 To unzip and untar the file use the below command. 
 \begin{verbatim}
 [shell prompt]$ tar -xzvf MG5_aMC_v2.1.1.tar.gz
@@ -332,10 +342,17 @@ Optional configurations for the $\MADGRAPH$ program to disable it from checking 
 up-to-date release and to prevent auto-opening of web browser to display Feynman diagrams. These 
 options are especially useful when submitting batch jobs using condor.
 \begin{verbatim}
-[shell prompt]$ emacs -nw MG5_aMC_v2_1_1/input/mg5_configuration.txt
+[shell prompt]$ emacs -nw MG5_aMC_v2_2_3/input/mg5_configuration.txt
 change "#auto_update = 7" to "auto_update = 0"
 change "#automatic_html_opening = True" to "automatic_html_opening = False"
 \end{verbatim}
+
+{\color{red} Please note the removal of  the ``\#" symbol.} 
+
+
+%%%%%%%%%%%%% How to use MadGraph %%%%%%%%%%%%%%%%%%%%%
+\subsection{How to use MadGraph}
+\label{sec:UsingMadGraph}
 
 We are now ready to use $\MADGRAPH$, but first some general information regarding which configuration files 
 are most important for running the program. The two major files are the proc\_card\_mg5.dat file in the main $\MADGRAPH$ 
@@ -355,7 +372,7 @@ configuration file you should monitor,
 
 To test out your local version of the software you may use the example proc\_card.dat file provided by $\MADGRAPH$.
 \begin{verbatim}
-[shell prompt]$ cd MG5_aMC_v2_1_1
+[shell prompt]$ cd MG5_aMC_v2_2_3
 [shell prompt]$ ./bin/mg5_aMC proc_card.dat
 [shell prompt]$ cd PROC_sm_0
 [shell prompt]$ ./bin/generate_events -f PROC_sm_0 >& PROC_sm_0.log &
@@ -373,16 +390,17 @@ Please review the LHE file to make sure the correct physics process was generate
 energy for the collision.
 
 
+%%%%%%%%%%%%% Using an SHLA file as input %%%%%%%%%%%%%%%%%%%%%
 \subsection{Using an SHLA file as input}
 
 We give below an example of how to generate an LHE file from an SLHA file using $\MADGRAPH$.
 \begin{verbatim}
-[shell prompt]$ cd MG5_aMC_v2_1_1/models
+[shell prompt]$ cd MG5_aMC_v2_2_3/models
 [shell prompt]$ cp -r mssm_v4 StopHiggsino_stop200_chargino150
 [shell prompt]$ cd -
 [shell prompt]$ cp slha/StopHiggsino_stop200_chargino150.slha 
-MG5_aMC_v2_1_1/models/StopHiggsino_stop200_chargino150/param_card.dat
-[shell prompt]$ cd MG5_aMC_v2_1_1
+MG5_aMC_v2_2_3/models/StopHiggsino_stop200_chargino150/param_card.dat
+[shell prompt]$ cd MG5_aMC_v2_2_3
 [shell prompt]$ ./bin/mg5_aMC 
 ../test/StopHiggsino_stop200_chargino150_proc_card.dat
 \end{verbatim} 
@@ -413,8 +431,10 @@ StopHiggsino_stop200_chargino150/Cards/run_card.dat
 We have now generated an LHE file with top squark pair production.
 
 
+%%%%%%%%%%%%% BRIDGE %%%%%%%%%%%%%%%%%%%%%
 \section{BRIDGE}
 
+%%%%%%%%%%%%% Introduction %%%%%%%%%%%%%%%%%%%%%
 \subsection{Introduction}
 
 The BRIDGE (Branching Ratio Inquiry/Decay Generated Events) program is designed to operate with 
@@ -429,11 +449,24 @@ MSSM. In this manual we describe how to use BRIDGE, and present a number of samp
 demonstrate its accuracy.
 
 
+%%%%%%%%%%%%% Setting up BRIDGE %%%%%%%%%%%%%%%%%%%%%
 \subsection{Setting up BRIDGE}
 \label{sec:BRIDGESetup}
 
 Download BRIDGE from the BRIDGE 
 website (\url{http://www.lepp.cornell.edu/Research/TPP/BridgeSoftware.html}).
+
+Or use the following command line option.
+\begin{verbatim}
+[shell prompt]$ wget http://www.lepp.cornell.edu/rsrc/Home/Research
+/ParticleTheory/BridgeSoftware/BRIDGEv2.25.tar.gz
+\end{verbatim}
+
+To unzip and untar the file use the below command. 
+\begin{verbatim}
+[shell prompt]$ tar -xzvf BRIDGEv2.25.tar.gz
+\end{verbatim}
+
 To install, you should place the ``BRIDGE" directory you get from the tar file under your MadGraph 
 directory, at the same level as ``Template". You should then be able to run ``make". The makefile 
 assumes that you have the library ``libdhelas3.a" in the directory ``HELAS/lib" under your 
@@ -446,7 +479,7 @@ the HELAS library. The BRIDGE program will depend on the HELAS library when it i
 First, we have to changed the default compiler gfortran to g77 so that the HELAS library can be 
 compatible with the BRIDGE program.}
 \begin{verbatim}
-[shell prompt]$ cd MG5_aMC_v2_1_1/HELAS
+[shell prompt]$ cd MG5_aMC_v2_2_3/HELAS
 [shell prompt]$ emacs -nw Makefile
 Add "FC = g77" after the line "LIBDIR  = ./lib/"
 [shell prompt]$ make
@@ -461,8 +494,8 @@ or lxplus and then transfer it to cmslpc-sl6)
 directory. We now unzip and untar the BRIDGE file,} 
 \begin{verbatim}
 [shell prompt]$ tar -xzvf BRIDGEv2.25.tar.gz
-[shell prompt]$ mv BRIDGE MG5_aMC_v2_1_1/.
-[shell prompt]$ cd MG5_aMC_v2_1_1/BRIDGE
+[shell prompt]$ mv BRIDGE MG5_aMC_v2_2_3/.
+[shell prompt]$ cd MG5_aMC_v2_2_3/BRIDGE
 [shell prompt]$ emacs -nw source/makefile
 change "-ldhelas3" to "-ldhelas3 -lg2c"
 [shell prompt]$ make
@@ -471,7 +504,7 @@ change "-ldhelas3" to "-ldhelas3 -lg2c"
 {\color{red} After BRIDGE has compiled properly we need to set the HELAS library back to its original 
 state or else $\MADGRAPH$ will stop working properly.}
 \begin{verbatim}
-[shell prompt]$ cd MG5_aMC_v2_1_1/HELAS
+[shell prompt]$ cd MG5_aMC_v2_2_3/HELAS
 [shell prompt]$ emacs -nw Makefile
 Remove "FC = g77"
 [shell prompt]$ make clean
@@ -481,10 +514,12 @@ Remove "FC = g77"
 {\color{red} We are now ready to use BRIDGE.}
 
 
+%%%%%%%%%%%%% Using BRIDGE with MadGraph %%%%%%%%%%%%%%%%%%%%%
 \subsection{Using BRIDGE with \texorpdfstring{$\MADGRAPH$}{MadGraph}}
 
 No information about BRIDGE with $\MADGRAPH$ will be included at this time.
 
+%%%%%%%%%%%%% Using SUSY BRIDGE with MadGraph %%%%%%%%%%%%%%%%%%%%%
 \subsection{Using SUSY BRIDGE with \texorpdfstring{$\MADGRAPH$}{MadGraph}}
 
 We briefly here discuss how the MSSM is designed to be used with BRIDGE. We provide two 
@@ -598,6 +633,7 @@ with the missing jet matching information recovered.}
 %%%%%%%%%%%%% LHE Validation %%%%%%%%%%%%%%%%%%%%%
 \section{MC production validation}
 
+%%%%%%%%%%%%% Introducion %%%%%%%%%%%%%%%%%%%%%
 \subsection{Introducion}
 
 It is recommended that 90\% of MC production should be devoted to MC validation and 10\% to MC production. 
@@ -605,20 +641,35 @@ Because MC production is a time consuming process it is worth the extra time to 
 as possible in order to avoid having to rerun the MC production several times. In the following sections we cover 
 possible ways to validate the physics process that were generated in the LHE file.
 
+%%%%%%%%%%%%% Using the lheReader program %%%%%%%%%%%%%%%%%%%%%
 \subsection{Using the lheReader program}
 
 It is recommended that once an LHE file has been produced a series of validations steps should be taken 
 in order to guarantee that the physical processes in it make sense. For this we have a program which takes in
-an LHE file and produces a TTree.
+an LHE file and produces a TTree. The program is part of the RutgersIAF framework, which upon being compiled 
+will automatically be available to the user. It is also publicly available on GitHub as a standalone program.
 
-\small
 \begin{verbatim}
-[shell prompt]$ lheReader "myfile.lhe" "myoutput.root" 1 1 1 false
+[shell prompt]$ git clone git@github.com:chrisjcc/LHETools.git
 \end{verbatim}
-\normalsize
 
-where lheReader is the name of the binary, "myfile.lhe" and "myoutput.root" are the input and output files, 1 1 1 
-are the run number, first event number, and lumi number, respectively. A few useful commands are given below.
+There is a README.txt file that explains how to compile the standalone program.
+
+The program is run with the following command.
+\begin{verbatim}
+[shell prompt]$ lheReader -i [input_1.lhe] [input_2.lhe] -o [output.root] 
+-r [run] -e [event] -l [lumi] -d [debug mode]
+\end{verbatim}
+
+For example,
+\begin{verbatim}
+[shell prompt]$ lheReader -i myfile.lhe -o myoutput.root 
+-r 1 -e 1 -l 1 -d false
+\end{verbatim}
+
+where lheReader is the name of the binary, "myfile.lhe" and "myoutput.root" are the input and output files, -r 1 -e 1 -l 1 
+are the run number, first event number, and lumi number, respectively, and -d false is for turning off the debug mode. 
+A few useful commands are given below.
 
 Plotting the $\pt$ distribution of all outgoing and decaying particles.
 \small
